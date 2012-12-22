@@ -27,23 +27,22 @@
 #mate-panel-1.5.3-0.1.i686 marks mate-panel-libs-1.5.3-0.1.i686 (cap libmate-panel-applet-4.so.1)
 #mate-panel-1.5.3-0.1.i686 marks libmateweather-1.5.0-1.i686 (cap libmateweather.so.1)
 #mate-panel-1.5.3-0.1.i686 marks libmatewnck-1.5.0-1.i686 (cap libmatewnck.so.0)
-# - apidoc subpackage
 # - panel does not start:
 #(mate-panel:7862): GLib-GIO-ERROR **: Settings schema 'org.mate.caja.desktop' is not installed
 
 # Conditional build:
-%bcond_with	doc	# gtk doc. broken
+%bcond_with	apidocs		# disable gtk-doc
 
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	0.1
+Release:	0.2
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
-URL:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	72029cbcd38bee447df92c8774452bf3
+URL:		http://mate-desktop.org/
 BuildRequires:	desktop-file-utils
 BuildRequires:	icon-naming-utils
 BuildRequires:	mate-common
@@ -98,6 +97,18 @@ Requires:	%{name}-libs = %{version}-%{release}
 %description devel
 Development files for mate-panel
 
+%package apidocs
+Summary:	mate-panel API documentation
+Summary(pl.UTF-8):	Dokumentacja API mate-panel
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+mate-panel API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API mate-panel.
+
 %prep
 %setup -q
 
@@ -111,11 +122,9 @@ NOCONFIGURE=1 ./autogen.sh
 	--with-x \
 	--enable-network-manager \
 	--libexecdir=%{_libexecdir}/mate-panel \
-	--with-html-dir=%{_gtkdocdir} \
-	%{?with_doc:--enable-gtk-doc} \
-	--enable-introspection
+	%{?with_apidocs:--enable-gtk-doc --with-html-dir=%{_gtkdocdir}} \
 
-%{__make}  \
+%{__make} \
 	V=1
 
 %install
@@ -123,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -fv $RPM_BUILD_ROOT%{_libdir}/lib*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 
 desktop-file-install \
         --remove-category="MATE" \
@@ -181,5 +190,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/mate-panel-4.0
 %{_pkgconfigdir}/libmatepanelapplet-4.0.pc
 %{_datadir}/gir-1.0/MatePanelApplet-4.0.gir
-# apidoc
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
 %{_gtkdocdir}/mate-panel-applet
+%endif
