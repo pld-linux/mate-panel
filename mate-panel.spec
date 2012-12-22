@@ -73,6 +73,7 @@ Requires:	gsettings-desktop-schemas
 Requires:	desktop-file-utils
 Requires:	gtk-update-icon-cache
 Requires:	mate-session-manager
+Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
