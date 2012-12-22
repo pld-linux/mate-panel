@@ -1,27 +1,4 @@
 # TODO
-# - docs broken, like mate-desktop
-#   fix gtk-doc building (probably missing some dtd's)
-#xsltproc -o mate-applet-clock-C.omf --stringparam db2omf.basename mate-applet-clock --stringparam db2omf.format 'docbook' --stringparam db2omf.dtd "-//OASIS//DTD DocBook XML V4.1.2//EN" --stringparam db2omf.lang C --stringparam db2omf.omf_dir "/usr/share/omf" --stringparam db2omf.help_dir "/usr/share/mate/help" --stringparam db2omf.omf_in "/home/users/glen/rpm/packages/BUILD.i686-linux/mate-panel-1.5.3/help/clock/mate-applet-clock.omf.in"  `/usr/bin/pkg-config --variable db2omf mate-doc-utils` C/mate-applet-clock.xml || { rm -f "mate-applet-clock-C.omf"; exit 1; }
-#if ! test -d ar/; then mkdir ar/; fi
-#if [ -f "C/mate-applet-clock.xml" ]; then d="../"; else d="/home/users/glen/rpm/packages/BUILD.i686-linux/mate-panel-1.5.3/help/clock/"; fi; \
-#mo="ar/ar.mo"; \
-#if [ -f "${mo}" ]; then mo="../${mo}"; else mo="/home/users/glen/rpm/packages/BUILD.i686-linux/mate-panel-1.5.3/help/clock/${mo}"; fi; \
-#(cd ar/ && \
-#  `which xml2po` -m docbook -e -t "${mo}" \
-#    "${d}C/mate-applet-clock.xml" > mate-applet-clock.xml.tmp && \
-#    cp mate-applet-clock.xml.tmp mate-applet-clock.xml && rm -f mate-applet-clock.xml.tmp)
-#runtime error
-#xsltApplyStylesheet: saving to mate-applet-clock-C.omf may not be possible
-#make[3]: *** [mate-applet-clock-C.omf] Error 1
-#make[3]: *** Waiting for unfinished jobs....
-#Making all in mate-panel-applet
-#make[4]: Entering directory `/home/users/glen/rpm/BUILD/i686-linux/mate-panel-1.5.3/doc/reference/mate-panel-applet'
-#  DOC   Scanning header files
-#  DOC   Introspecting gobjects
-#libtool: link: cannot find the library `../../../libmate-panel-applet/libmate-panel-applet-3.la' or unhandled argument `../../../libmate-panel-applet/libmate-panel-applet-3.la'
-#Linking of scanner failed:
-#make[4]: *** [scan-build.stamp] Error 1
-#make[4]: Leaving directory `/home/users/
 # - check direct deps:
 #mate-panel-1.5.3-0.1.i686 marks mate-menus-libs-1.5.0-1.i686 (cap libmate-menu.so.2)
 #mate-panel-1.5.3-0.1.i686 marks mate-panel-libs-1.5.3-0.1.i686 (cap libmate-panel-applet-4.so.1)
@@ -31,7 +8,7 @@
 #(mate-panel:7862): GLib-GIO-ERROR **: Settings schema 'org.mate.caja.desktop' is not installed
 
 # Conditional build:
-%bcond_with	apidocs		# disable gtk-doc
+%bcond_without	apidocs		# disable gtk-doc
 
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
@@ -122,7 +99,7 @@ NOCONFIGURE=1 ./autogen.sh
 	--with-x \
 	--enable-network-manager \
 	--libexecdir=%{_libexecdir}/mate-panel \
-	%{?with_apidocs:--enable-gtk-doc --with-html-dir=%{_gtkdocdir}} \
+	--with-html-dir=%{_gtkdocdir}
 
 %{__make} \
 	V=1
