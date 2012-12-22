@@ -11,7 +11,7 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	0.2
+Release:	0.4
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
@@ -139,9 +139,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mate-desktop-item-edit
 %attr(755,root,root) %{_bindir}/mate-panel
 %attr(755,root,root) %{_bindir}/mate-panel-test-applets
-%{_mandir}/man1/*
+%{_mandir}/man1/mate-panel.1*
+%dir %{_libdir}/mate-panel
+%attr(755,root,root) %{_libdir}/mate-panel/clock-applet
+%attr(755,root,root) %{_libdir}/mate-panel/fish-applet
+%attr(755,root,root) %{_libdir}/mate-panel/mate-panel-add
+%attr(755,root,root) %{_libdir}/mate-panel/notification-area-applet
+%attr(755,root,root) %{_libdir}/mate-panel/wnck-applet
 %{_libdir}/girepository-1.0/MatePanelApplet-4.0.typelib
-%{_libexecdir}/mate-panel
 %{_datadir}/glib-2.0/schemas/org.mate.panel.*.xml
 %{_desktopdir}/mate-panel.desktop
 %{_datadir}/dbus-1/services/org.mate.panel.*.service
