@@ -11,7 +11,7 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	0.4
+Release:	0.5
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
@@ -38,6 +38,7 @@ BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	popt-devel
+BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	%{name}-libs = %{version}-%{release}
@@ -115,7 +116,7 @@ desktop-file-install \
         --dir=$RPM_BUILD_ROOT%{_desktopdir} \
 $RPM_BUILD_ROOT%{_desktopdir}/mate-panel.desktop
 
-%find_lang %{name}
+%find_lang %{name} --with-mate --with-omf --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -148,15 +149,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/mate-panel/wnck-applet
 %{_libdir}/girepository-1.0/MatePanelApplet-4.0.typelib
 %{_datadir}/glib-2.0/schemas/org.mate.panel.*.xml
-%{_desktopdir}/mate-panel.desktop
 %{_datadir}/dbus-1/services/org.mate.panel.*.service
-%{_datadir}/omf/mate-applet-fish
-%{_datadir}/omf/mate-applet-clock
-%{_iconsdir}/hicolor/*/*/*
-%{_datadir}/mate/help/mate-applet-clock
-%{_datadir}/mate/help/mate-applet-fish
 %{_datadir}/mate-panel
 %{_datadir}/mate-panelrc
+%{_iconsdir}/hicolor/*/*/*
+%{_desktopdir}/mate-panel.desktop
 
 %files libs
 %defattr(644,root,root,755)
