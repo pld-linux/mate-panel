@@ -28,6 +28,8 @@
 #mate-panel-1.5.3-0.1.i686 marks libmateweather-1.5.0-1.i686 (cap libmateweather.so.1)
 #mate-panel-1.5.3-0.1.i686 marks libmatewnck-1.5.0-1.i686 (cap libmatewnck.so.0)
 # - apidoc subpackage
+# - panel does not start:
+#(mate-panel:7862): GLib-GIO-ERROR **: Settings schema 'org.mate.caja.desktop' is not installed
 
 # Conditional build:
 %bcond_with	doc	# gtk doc. broken
