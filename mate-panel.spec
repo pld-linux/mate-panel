@@ -11,7 +11,7 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	0.5
+Release:	0.7
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
@@ -60,7 +60,6 @@ MATE Desktop panel applets
 Summary:	Shared libraries for mate-panel
 License:	LGPL v2+
 Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
 
 %description libs
 Shared libraries for libmate-desktop
