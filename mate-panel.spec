@@ -11,35 +11,38 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	0.7
+Release:	1
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	72029cbcd38bee447df92c8774452bf3
-URL:		http://mate-desktop.org/
+URL:		http://wiki.mate-desktop.org/mate-panel
+BuildRequires:	NetworkManager-gtk-lib-devel
+BuildRequires:	dbus-glib-devel
+BuildRequires:	dconf-devel
 BuildRequires:	desktop-file-utils
+BuildRequires:	glib2-devel >= 1:2.25.12
+BuildRequires:	gobject-introspection-devel
+BuildRequires:	gsettings-desktop-schemas-devel
+BuildRequires:	gtk+2-devel >= 2:2.19.7
 BuildRequires:	icon-naming-utils
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libcanberra-devel
+BuildRequires:	libmateweather-devel
+BuildRequires:	libmatewnck-devel
+BuildRequires:	librsvg-devel
 BuildRequires:	mate-common
-BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(dconf)
-BuildRequires:	pkgconfig(gobject-introspection-1.0)
-BuildRequires:	pkgconfig(gsettings-desktop-schemas)
-BuildRequires:	pkgconfig(gtk+-2.0)
-BuildRequires:	pkgconfig(libcanberra)
-BuildRequires:	pkgconfig(libmate-menu)
-BuildRequires:	pkgconfig(libmatewnck)
-BuildRequires:	pkgconfig(libnm-gtk)
-BuildRequires:	pkgconfig(librsvg-2.0)
-BuildRequires:	pkgconfig(mate-desktop-2.0)
-%{?with_apidoc:BuildRequires:	pkgconfig(mate-doc-utils)}
-BuildRequires:	pkgconfig(mateweather)
-BuildRequires:	pkgconfig(pango)
-BuildRequires:	pkgconfig(sm)
-BuildRequires:	pkgconfig(x11)
+BuildRequires:	mate-desktop-devel
+%{?with_apidocs:BuildRequires:	mate-doc-utils}
+BuildRequires:	mate-menus-devel
+BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xorg-lib-libICE-devel
+BuildRequires:	xorg-lib-libSM-devel
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2 >= 1:2.26.0
