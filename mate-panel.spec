@@ -11,7 +11,7 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	1
+Release:	2
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
@@ -49,6 +49,7 @@ Requires:	desktop-file-utils
 Requires:	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
+Requires:	mate-window-manager
 Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod
