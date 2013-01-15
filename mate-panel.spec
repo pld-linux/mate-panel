@@ -45,10 +45,9 @@ BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
 Requires:	%{name}-libs = %{version}-%{release}
+Requires:	desktop-file-utils
 Requires:	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas
-# needed as nothing else requires it
-Requires:	desktop-file-utils
 Requires:	gtk-update-icon-cache
 Requires:	mate-session-manager
 Suggests:	mate-settings-daemon
