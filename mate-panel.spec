@@ -49,7 +49,6 @@ Requires:	desktop-file-utils
 Requires:	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
-Requires:	mate-session-manager
 Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod
