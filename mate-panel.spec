@@ -11,12 +11,13 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.3
-Release:	2
+Release:	3
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	72029cbcd38bee447df92c8774452bf3
+Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-gtk-lib-devel
 BuildRequires:	dbus-glib-devel
@@ -88,6 +89,7 @@ Dokumentacja API %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh
