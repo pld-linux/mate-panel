@@ -59,7 +59,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 MATE Desktop panel applets
 
 %package libs
-Summary:	Shared libraries for mate-panel
+Summary:	Shared libraries for %{name}
 License:	LGPL v2+
 Group:		Libraries
 
@@ -67,24 +67,24 @@ Group:		Libraries
 Shared libraries for libmate-desktop
 
 %package devel
-Summary:	Development files for mate-panel
+Summary:	Development files for %{name}
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
-Development files for mate-panel
+Development files for %{name}
 
 %package apidocs
-Summary:	mate-panel API documentation
-Summary(pl.UTF-8):	Dokumentacja API mate-panel
+Summary:	%{name} API documentation
+Summary(pl.UTF-8):	Dokumentacja API %{name}
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
-mate-panel API documentation.
+%{name} API documentation.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API mate-panel.
+Dokumentacja API %{name}.
 
 %prep
 %setup -q
@@ -98,7 +98,7 @@ NOCONFIGURE=1 ./autogen.sh
 	--disable-schemas-compile \
 	--with-x \
 	--enable-network-manager \
-	--libexecdir=%{_libexecdir}/mate-panel \
+	--libexecdir=%{_libdir}/%{name} \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make} \
@@ -115,7 +115,7 @@ desktop-file-install \
         --remove-category="MATE" \
         --add-category="X-Mate" \
         --dir=$RPM_BUILD_ROOT%{_desktopdir} \
-$RPM_BUILD_ROOT%{_desktopdir}/mate-panel.desktop
+$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 %find_lang %{name} --with-mate --with-omf --all-name
 
@@ -139,38 +139,38 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING README
 %attr(755,root,root) %{_bindir}/mate-desktop-item-edit
-%attr(755,root,root) %{_bindir}/mate-panel
-%attr(755,root,root) %{_bindir}/mate-panel-test-applets
-%{_mandir}/man1/mate-panel.1*
-%dir %{_libdir}/mate-panel
-%attr(755,root,root) %{_libdir}/mate-panel/clock-applet
-%attr(755,root,root) %{_libdir}/mate-panel/fish-applet
-%attr(755,root,root) %{_libdir}/mate-panel/mate-panel-add
-%attr(755,root,root) %{_libdir}/mate-panel/notification-area-applet
-%attr(755,root,root) %{_libdir}/mate-panel/wnck-applet
+%attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}-test-applets
+%{_mandir}/man1/%{name}.1*
+%dir %{_libdir}/%{name}
+%attr(755,root,root) %{_libdir}/%{name}/clock-applet
+%attr(755,root,root) %{_libdir}/%{name}/fish-applet
+%attr(755,root,root) %{_libdir}/%{name}/%{name}-add
+%attr(755,root,root) %{_libdir}/%{name}/notification-area-applet
+%attr(755,root,root) %{_libdir}/%{name}/wnck-applet
 %{_libdir}/girepository-1.0/MatePanelApplet-4.0.typelib
 %{_datadir}/glib-2.0/schemas/org.mate.panel.*.xml
 %{_datadir}/dbus-1/services/org.mate.panel.*.service
-%{_datadir}/mate-panel
-%{_datadir}/mate-panelrc
+%{_datadir}/%{name}
+%{_datadir}/%{name}rc
 %{_iconsdir}/hicolor/*/*/*
-%{_desktopdir}/mate-panel.desktop
+%{_desktopdir}/%{name}.desktop
 
 %files libs
 %defattr(644,root,root,755)
 %doc COPYING.LIB
-%attr(755,root,root) %{_libdir}/libmate-panel-applet-4.so.*.*.*
-%ghost %{_libdir}/libmate-panel-applet-4.so.1
+%attr(755,root,root) %{_libdir}/lib%{name}-applet-4.so.*.*.*
+%ghost %{_libdir}/lib%{name}-applet-4.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libmate-panel-applet-4.so
-%{_includedir}/mate-panel-4.0
+%{_libdir}/lib%{name}-applet-4.so
+%{_includedir}/%{name}-4.0
 %{_pkgconfigdir}/libmatepanelapplet-4.0.pc
 %{_datadir}/gir-1.0/MatePanelApplet-4.0.gir
 
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/mate-panel-applet
+%{_gtkdocdir}/%{name}-applet
 %endif
