@@ -19,17 +19,16 @@ Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	72029cbcd38bee447df92c8774452bf3
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
-BuildRequires:	NetworkManager-gtk-lib-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dconf-devel
 BuildRequires:	desktop-file-utils
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	glib2-devel >= 1:2.25.12
 BuildRequires:	gobject-introspection-devel
-BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+2-devel >= 2:2.19.7
-BuildRequires:	icon-naming-utils
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-devel
+BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	libmateweather-devel
 BuildRequires:	libmatewnck-devel
 BuildRequires:	librsvg-devel
@@ -39,6 +38,7 @@ BuildRequires:	mate-desktop-devel
 BuildRequires:	mate-menus-devel
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	popt-devel
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libICE-devel
