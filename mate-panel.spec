@@ -10,20 +10,20 @@
 
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
-Version:	1.5.3
-Release:	3
+Version:	1.5.4
+Release:	1
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
-# Source0-md5:	72029cbcd38bee447df92c8774452bf3
+# Source0-md5:	20c7ecca61dc37bda06465c46cd79500
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dconf-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	glib2-devel >= 1:2.25.12
+BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+2-devel >= 2:2.19.7
 BuildRequires:	intltool >= 0.40.0
@@ -110,6 +110,9 @@ NOCONFIGURE=1 ./autogen.sh
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# mate < 1.5 did not exist in pld, avoid dependency on mate-conf
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/mate-panel.convert
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 
