@@ -10,13 +10,13 @@
 
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
-Version:	1.5.4
+Version:	1.5.5
 Release:	1
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
-# Source0-md5:	20c7ecca61dc37bda06465c46cd79500
+# Source0-md5:	e97f13354caebb39c2b84f4bd1f2c3a5
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	dbus-glib-devel
@@ -29,11 +29,11 @@ BuildRequires:	gtk+2-devel >= 2:2.19.7
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-devel
 BuildRequires:	libcanberra-gtk-devel
-BuildRequires:	libmateweather-devel
-BuildRequires:	libmatewnck-devel
+BuildRequires:	libmateweather-devel >= 1.5.0
+BuildRequires:	libmatewnck-devel >= 1.5.1
 BuildRequires:	librsvg-devel
 BuildRequires:	mate-common
-BuildRequires:	mate-desktop-devel
+BuildRequires:	mate-desktop-devel >= 1.5.0
 %{?with_apidocs:BuildRequires:	mate-doc-utils}
 BuildRequires:	mate-menus-devel
 BuildRequires:	pango-devel >= 1:1.15.4
@@ -95,6 +95,7 @@ Dokumentacja API %{name}.
 NOCONFIGURE=1 ./autogen.sh
 # libexecdir needed for gnome conflicts
 %configure \
+	--disable-silent-rules \
 	--disable-scrollkeeper \
 	--disable-static \
 	--disable-schemas-compile \
@@ -103,8 +104,7 @@ NOCONFIGURE=1 ./autogen.sh
 	--libexecdir=%{_libdir}/%{name} \
 	--with-html-dir=%{_gtkdocdir}
 
-%{__make} \
-	V=1
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
