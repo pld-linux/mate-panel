@@ -11,13 +11,14 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.5.5
-Release:	1
+Release:	2
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	e97f13354caebb39c2b84f4bd1f2c3a5
 Patch0:		no-xdg-menu-prefix.patch
+Patch1:		use-libwnck.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dconf-devel
@@ -30,8 +31,8 @@ BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-devel
 BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	libmateweather-devel >= 1.5.0
-BuildRequires:	libmatewnck-devel >= 1.5.1
 BuildRequires:	librsvg-devel
+BuildRequires:	libwnck2-devel >= 2.30.7-2
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.5.0
 %{?with_apidocs:BuildRequires:	mate-doc-utils}
@@ -50,6 +51,7 @@ Requires:	desktop-file-utils
 Requires:	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
+Requires:	libwnck2 >= 2.30.7-2
 Requires:	mate-window-manager
 Suggests:	mate-settings-daemon
 # for fish
@@ -90,6 +92,7 @@ Dokumentacja API %{name}.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh
