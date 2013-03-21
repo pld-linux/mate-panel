@@ -10,13 +10,13 @@
 
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
-Version:	1.5.5
-Release:	2
+Version:	1.5.6
+Release:	1
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
-# Source0-md5:	e97f13354caebb39c2b84f4bd1f2c3a5
+# Source0-md5:	68dd3cc9e47cabc99c96665b1cdb65b6
 Patch0:		no-xdg-menu-prefix.patch
 Patch1:		use-libwnck.patch
 URL:		http://wiki.mate-desktop.org/mate-panel

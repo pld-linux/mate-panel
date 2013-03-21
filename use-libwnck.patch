@@ -390,23 +390,6 @@
  
  	if (!wm_name)
  		pager->wm = PAGER_WM_UNKNOWN;
-@@ -195,13 +196,13 @@ static void applet_change_background(Mat
- 	switch (type)
- 	{
- 		case PANEL_NO_BACKGROUND:
--			matewnck_pager_set_shadow_type(MATEWNCK_PAGER(pager->pager), GTK_SHADOW_IN);
-+			wnck_pager_set_shadow_type(WNCK_PAGER(pager->pager), GTK_SHADOW_IN);
- 			break;
- 		case PANEL_COLOR_BACKGROUND:
--			matewnck_pager_set_shadow_type(MATEWNCK_PAGER(pager->pager), GTK_SHADOW_NONE);
-+			wnck_pager_set_shadow_type(WNCK_PAGER(pager->pager), GTK_SHADOW_NONE);
- 			break;
- 		case PANEL_PIXMAP_BACKGROUND:
--			matewnck_pager_set_shadow_type(MATEWNCK_PAGER(pager->pager), GTK_SHADOW_NONE);
-+			wnck_pager_set_shadow_type(WNCK_PAGER(pager->pager), GTK_SHADOW_NONE);
- 			break;
- 	}
- }
 @@ -217,8 +218,8 @@ static gboolean applet_scroll(MatePanelA
  	if (event->type != GDK_SCROLL)
  		return FALSE;
