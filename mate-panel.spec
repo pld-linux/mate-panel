@@ -11,7 +11,7 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.6.1
-Release:	1
+Release:	2
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
@@ -95,7 +95,9 @@ Dokumentacja API %{name}.
 %patch1 -p1
 
 %build
-NOCONFIGURE=1 ./autogen.sh
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 # libexecdir needed for gnome conflicts
 %configure \
 	--disable-silent-rules \
@@ -147,21 +149,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING README
 %attr(755,root,root) %{_bindir}/mate-desktop-item-edit
-%attr(755,root,root) %{_bindir}/%{name}
-%attr(755,root,root) %{_bindir}/%{name}-test-applets
-%{_mandir}/man1/%{name}.1*
+%attr(755,root,root) %{_bindir}/mate-panel
+%attr(755,root,root) %{_bindir}/mate-panel-test-applets
+%{_mandir}/man1/mate-desktop-item-edit.1*
+%{_mandir}/man1/mate-panel-test-applets.1*
+%{_mandir}/man1/mate-panel.1*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/clock-applet
 %attr(755,root,root) %{_libdir}/%{name}/fish-applet
-%attr(755,root,root) %{_libdir}/%{name}/%{name}-add
 %attr(755,root,root) %{_libdir}/%{name}/notification-area-applet
 %attr(755,root,root) %{_libdir}/%{name}/wnck-applet
 %{_libdir}/girepository-1.0/MatePanelApplet-4.0.typelib
 %{_datadir}/glib-2.0/schemas/org.mate.panel.*.xml
 %{_datadir}/dbus-1/services/org.mate.panel.*.service
 %{_datadir}/%{name}
-%{_datadir}/%{name}rc
-%{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/hicolor/*/*/*.*
 %{_desktopdir}/%{name}.desktop
 
 %files libs
