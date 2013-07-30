@@ -11,7 +11,7 @@
 Summary:	MATE Desktop panel applets
 Name:		mate-panel
 Version:	1.6.1
-Release:	2
+Release:	3
 # libs are LGPLv2+ applications GPLv2+
 License:	GPL v2+
 Group:		X11/Applications
