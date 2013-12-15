@@ -1,57 +1,65 @@
-# TODO
-# - check direct deps:
-#mate-panel-1.5.3-0.1.i686 marks mate-menus-libs-1.5.0-1.i686 (cap libmate-menu.so.2)
-#mate-panel-1.5.3-0.1.i686 marks mate-panel-libs-1.5.3-0.1.i686 (cap libmate-panel-applet-4.so.1)
-#mate-panel-1.5.3-0.1.i686 marks libmateweather-1.5.0-1.i686 (cap libmateweather.so.1)
-#mate-panel-1.5.3-0.1.i686 marks libmatewnck-1.5.0-1.i686 (cap libmatewnck.so.0)
-
+#
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
 
 Summary:	MATE Desktop panel applets
+Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
 Version:	1.6.1
-Release:	3
-# libs are LGPLv2+ applications GPLv2+
-License:	GPL v2+
+Release:	4
+License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
 # Source0-md5:	330120e045183413bca371b295c6a1df
 Patch0:		no-xdg-menu-prefix.patch
 Patch1:		use-libwnck.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
-BuildRequires:	dbus-glib-devel
-BuildRequires:	dconf-devel
+BuildRequires:	NetworkManager-devel >= 0.6
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	cairo-devel >= 1.0.0
+BuildRequires:	dbus-devel >= 1.1.2
+BuildRequires:	dbus-glib-devel >= 0.80
+BuildRequires:	dconf-devel >= 0.13.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
+BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
+BuildRequires:	gettext-devel >= 0.12
 BuildRequires:	glib2-devel >= 1:2.26.0
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk+2-devel >= 2:2.19.7
+BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libcanberra-devel
 BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	libmateweather-devel >= 1.5.0
-BuildRequires:	librsvg-devel
+BuildRequires:	libtool >= 1:1.4.3
+BuildRequires:	librsvg-devel >= 2.0
 BuildRequires:	libwnck2-devel >= 2.30.7-2
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.5.0
 %{?with_apidocs:BuildRequires:	mate-doc-utils}
-BuildRequires:	mate-menus-devel
+BuildRequires:	mate-menus-devel >= 1.1.0
 BuildRequires:	pango-devel >= 1:1.15.4
-BuildRequires:	popt-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXau-devel
+BuildRequires:	xorg-lib-libXrandr-devel >= 1.2.0
 BuildRequires:	xz
 Requires:	%{name}-libs = %{version}-%{release}
+Requires:	dbus >= 1.1.2
+Requires:	dbus-glib >= 0.80
+Requires:	dconf >= 0.13.4
 Requires:	desktop-file-utils
-Requires:	glib2 >= 1:2.26.0
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
+Requires:	libmateweather >= 1.5.0
 Requires:	libwnck2 >= 2.30.7-2
+Requires:	mate-desktop >= 1.5.0
+Requires:	mate-menus >= 1.1.0
 Requires:	mate-window-manager
 Suggests:	mate-settings-daemon
 # for fish
@@ -59,35 +67,55 @@ Requires:	fortune-mod
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-MATE Desktop panel applets
+MATE Desktop panel applets.
+
+%description -l pl.UTF-8
+Aplety panelu dla środowiska MATE Desktop.
 
 %package libs
-Summary:	Shared libraries for %{name}
+Summary:	Shared library for MATE panel applets
+Summary(pl.UTF-8):	Biblitoteka współdzielona dla apletów panelu MATE
 License:	LGPL v2+
 Group:		Libraries
+Requires:	cairo >= 1.0.0
+Requires:	gdk-pixbuf2 >= 2.7.1
+Requires:	glib2 >= 1:2.26.0
+Requires:	gtk+2 >= 2:2.19.7
+Requires:	pango >= 1:1.15.4
+Requires:	xorg-lib-libXrandr >= 1.2.0
 
 %description libs
-Shared libraries for libmate-desktop
+Shared library for MATE panel applets.
+
+%description libs -l pl.UTF-8
+Biblitoteka współdzielona dla apletów panelu MATE.
 
 %package devel
-Summary:	Development files for %{name}
+Summary:	Development files for libmate-panel-applet library
+Summary(pl.UTF-8):	Pliki programistyczne biblioteki libmate-panel-applet
+License:	LGPL v2+
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
+Requires:	glib2-devel >= 1:2.26.0
+Requires:	gtk+2-devel >= 2:2.19.7
 
 %description devel
-Development files for %{name}
+Development files for libmate-panel-applet library.
+
+%description devel -l pl.UTF-8
+Pliki programistyczne biblioteki libmate-panel-applet.
 
 %package apidocs
-Summary:	%{name} API documentation
-Summary(pl.UTF-8):	Dokumentacja API %{name}
+Summary:	API documentation for libmate-panel-applet library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libmate-panel-applet
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
-%{name} API documentation.
+API documentation for libmate-panel-applet library.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API %{name}.
+Dokumentacja API biblioteki libmate-panel-applet.
 
 %prep
 %setup -q
@@ -95,19 +123,21 @@ Dokumentacja API %{name}.
 %patch1 -p1
 
 %build
-%{__aclocal}
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 # libexecdir needed for gnome conflicts
 %configure \
-	--disable-silent-rules \
-	--disable-scrollkeeper \
-	--disable-static \
-	--disable-schemas-compile \
-	--with-x \
-	--enable-network-manager \
 	--libexecdir=%{_libdir}/%{name} \
-	--with-html-dir=%{_gtkdocdir}
+	--enable-network-manager \
+	--disable-schemas-compile \
+	--disable-scrollkeeper \
+	--disable-silent-rules \
+	--disable-static \
+	--with-html-dir=%{_gtkdocdir} \
+	--with-x
 
 %{__make}
 
@@ -125,7 +155,7 @@ desktop-file-install \
         --remove-category="MATE" \
         --add-category="X-Mate" \
         --dir=$RPM_BUILD_ROOT%{_desktopdir} \
-$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
+	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 %find_lang %{name} --with-mate --with-omf --all-name
 
@@ -147,7 +177,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING README
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/mate-desktop-item-edit
 %attr(755,root,root) %{_bindir}/mate-panel
 %attr(755,root,root) %{_bindir}/mate-panel-test-applets
@@ -159,28 +189,27 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/fish-applet
 %attr(755,root,root) %{_libdir}/%{name}/notification-area-applet
 %attr(755,root,root) %{_libdir}/%{name}/wnck-applet
-%{_libdir}/girepository-1.0/MatePanelApplet-4.0.typelib
+%{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.mate.panel.*.xml
 %{_datadir}/dbus-1/services/org.mate.panel.*.service
-%{_datadir}/%{name}
-%{_iconsdir}/hicolor/*/*/*.*
 %{_desktopdir}/%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/mate-panel*.*
 
 %files libs
 %defattr(644,root,root,755)
-%doc COPYING.LIB
-%attr(755,root,root) %{_libdir}/lib%{name}-applet-4.so.*.*.*
-%ghost %{_libdir}/lib%{name}-applet-4.so.1
+%attr(755,root,root) %{_libdir}/libmate-panel-applet-4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libmate-panel-applet-4.so.1
+%{_libdir}/girepository-1.0/MatePanelApplet-4.0.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib%{name}-applet-4.so
-%{_includedir}/%{name}-4.0
+%attr(755,root,root) %{_libdir}/libmate-panel-applet-4.so
+%{_includedir}/mate-panel-4.0
 %{_pkgconfigdir}/libmatepanelapplet-4.0.pc
 %{_datadir}/gir-1.0/MatePanelApplet-4.0.gir
 
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}-applet
+%{_gtkdocdir}/mate-panel-applet
 %endif
