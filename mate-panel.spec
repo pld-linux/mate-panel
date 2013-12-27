@@ -6,7 +6,7 @@ Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
 Version:	1.6.1
-Release:	4
+Release:	5
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
@@ -156,6 +156,9 @@ desktop-file-install \
         --add-category="X-Mate" \
         --dir=$RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
+
+# update naming convention
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{sr@ije,sr@ijekavian}
 
 %find_lang %{name} --with-mate --with-omf --all-name
 
