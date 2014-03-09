@@ -5,14 +5,13 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.6.2
+Version:	1.8.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
-# Source0-md5:	bffcebcc8edc10308799b3d339b67a53
+Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
+# Source0-md5:	fe1a3ff81a5d12cdbb8f3882cbb4f188
 Patch0:		no-xdg-menu-prefix.patch
-Patch1:		use-libwnck.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
@@ -37,7 +36,6 @@ BuildRequires:	librsvg-devel >= 2.0
 BuildRequires:	libwnck2-devel >= 2.30.7-2
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.5.0
-%{?with_apidocs:BuildRequires:	mate-doc-utils}
 BuildRequires:	mate-menus-devel >= 1.1.0
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	rpm-pythonprov
@@ -49,6 +47,7 @@ BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xorg-lib-libXrandr-devel >= 1.2.0
 BuildRequires:	xz
+BuildRequires:	yelp-tools
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	dbus >= 1.1.2
 Requires:	dbus-glib >= 0.80
@@ -58,9 +57,9 @@ Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
 Requires:	libmateweather >= 1.5.0
 Requires:	libwnck2 >= 2.30.7-2
+Requires:	marco
 Requires:	mate-desktop >= 1.5.0
 Requires:	mate-menus >= 1.1.0
-Requires:	mate-window-manager
 Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod
@@ -120,7 +119,6 @@ Dokumentacja API biblioteki libmate-panel-applet.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -150,6 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/mate-panel.convert
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/cmn
 
 desktop-file-install \
         --remove-category="MATE" \
