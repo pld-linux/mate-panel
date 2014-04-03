@@ -6,7 +6,7 @@ Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
 Version:	1.8.0
-Release:	1
+Release:	2
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
@@ -31,8 +31,8 @@ BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk-devel
 BuildRequires:	libmateweather-devel >= 1.5.0
-BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	librsvg-devel >= 2.0
+BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	libwnck2-devel >= 2.30.7-2
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.5.0
@@ -109,6 +109,9 @@ Summary:	API documentation for libmate-panel-applet library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libmate-panel-applet
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for libmate-panel-applet library.
