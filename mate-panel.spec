@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
+%bcond_with	gtk3		# use GTK+ 3.x instead of 2.x
 
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
@@ -26,18 +27,23 @@ BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
 BuildRequires:	gettext-devel >= 0.12
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
-BuildRequires:	gtk+2-devel >= 2:2.19.7
+%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.19.7}
+%{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libcanberra-gtk-devel
-BuildRequires:	libmateweather-devel >= 1.5.0
+%{!?with_gtk3:BuildRequires:	libcanberra-gtk-devel}
+%{?with_gtk3:BuildRequires:	libcanberra-gtk3-devel}
+%{!?with_gtk3:BuildRequires:	libmateweather-devel >= 1.5.0}
+%{?with_gtk3:BuildRequires:	libmateweather-devel >= 1.7.0}
 BuildRequires:	librsvg-devel >= 2.0
 BuildRequires:	libtool >= 1:1.4.3
-BuildRequires:	libwnck2-devel >= 2.30.7-2
+%{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
+%{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.30.7-2}
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.5.0
 BuildRequires:	mate-menus-devel >= 1.1.0
 BuildRequires:	pango-devel >= 1:1.15.4
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
@@ -55,8 +61,10 @@ Requires:	dconf >= 0.13.4
 Requires:	desktop-file-utils
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
-Requires:	libmateweather >= 1.5.0
-Requires:	libwnck2 >= 2.30.7-2
+%{!?with_gtk3:Requires:	libmateweather >= 1.5.0}
+%{?with_gtk3:Requires:	libmateweather >= 1.7.0}
+%{?with_gtk3:Requires:	libwnck >= 3.0.0}
+%{!?with_gtk3:Requires:	libwnck2 >= 2.30.7-2}
 Requires:	marco
 Requires:	mate-desktop >= 1.5.0
 Requires:	mate-menus >= 1.1.0
@@ -79,7 +87,8 @@ Group:		Libraries
 Requires:	cairo >= 1.0.0
 Requires:	gdk-pixbuf2 >= 2.7.1
 Requires:	glib2 >= 1:2.26.0
-Requires:	gtk+2 >= 2:2.19.7
+%{!?with_gtk3:Requires:	gtk+2 >= 2:2.19.7}
+%{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
 Requires:	pango >= 1:1.15.4
 Requires:	xorg-lib-libXrandr >= 1.2.0
 
@@ -96,7 +105,8 @@ License:	LGPL v2+
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.26.0
-Requires:	gtk+2-devel >= 2:2.19.7
+%{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.19.7}
+%{?with_gtk3:Requires:	gtk+3-devel >= 3.0.0}
 
 %description devel
 Development files for libmate-panel-applet library.
@@ -151,7 +161,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/mate-panel.convert
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/cmn
 
 desktop-file-install \
         --remove-category="MATE" \
