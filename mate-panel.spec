@@ -144,9 +144,9 @@ Dokumentacja API biblioteki libmate-panel-applet.
 	--libexecdir=%{_libdir}/%{name} \
 	--enable-network-manager \
 	--disable-schemas-compile \
-	--disable-scrollkeeper \
 	--disable-silent-rules \
 	--disable-static \
+	%{?with_gtk3:--with-gtk=3.0} \
 	--with-html-dir=%{_gtkdocdir} \
 	--with-x
 
@@ -171,7 +171,7 @@ desktop-file-install \
 # update naming convention
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{sr@ije,sr@ijekavian}
 
-%find_lang %{name} --with-mate --with-omf --all-name
+%find_lang %{name} --with-mate --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
