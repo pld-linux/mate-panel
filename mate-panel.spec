@@ -24,7 +24,7 @@ BuildRequires:	dconf-devel >= 0.13.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
-BuildRequires:	gettext-devel >= 0.12
+BuildRequires:	gettext-tools >= 0.12
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 %{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.19.7}
