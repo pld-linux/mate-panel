@@ -6,12 +6,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.8.1
-Release:	2
+Version:	1.10.0
+Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
-# Source0-md5:	9354b0f9619b273c1432fd8490e6cbac
+Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
+# Source0-md5:	f31487134fe7ae0ded5304195da9b34e
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
@@ -25,7 +25,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
 BuildRequires:	gettext-tools >= 0.12
-BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	glib2-devel >= 1:2.36
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 %{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.19.7}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
@@ -40,10 +40,11 @@ BuildRequires:	libtool >= 1:1.4.3
 %{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
 %{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.30.7-2}
 BuildRequires:	mate-common
-BuildRequires:	mate-desktop-devel >= 1.5.0
+BuildRequires:	mate-desktop-devel >= 1.9.3
 BuildRequires:	mate-menus-devel >= 1.1.0
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	pkgconfig
+BuildRequires:	python >= 2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
@@ -66,7 +67,7 @@ Requires:	gtk-update-icon-cache
 %{?with_gtk3:Requires:	libwnck >= 3.0.0}
 %{!?with_gtk3:Requires:	libwnck2 >= 2.30.7-2}
 Requires:	marco
-Requires:	mate-desktop >= 1.5.0
+Requires:	mate-desktop >= 1.9.3
 Requires:	mate-menus >= 1.1.0
 Suggests:	mate-settings-daemon
 # for fish
@@ -86,7 +87,7 @@ License:	LGPL v2+
 Group:		Libraries
 Requires:	cairo >= 1.0.0
 Requires:	gdk-pixbuf2 >= 2.7.1
-Requires:	glib2 >= 1:2.26.0
+Requires:	glib2 >= 1:2.36
 %{!?with_gtk3:Requires:	gtk+2 >= 2:2.19.7}
 %{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
 Requires:	pango >= 1:1.15.4
@@ -104,7 +105,7 @@ Summary(pl.UTF-8):	Pliki programistyczne biblioteki libmate-panel-applet
 License:	LGPL v2+
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.26.0
+Requires:	glib2-devel >= 1:2.36
 %{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.19.7}
 %{?with_gtk3:Requires:	gtk+3-devel >= 3.0.0}
 
