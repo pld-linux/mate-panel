@@ -6,12 +6,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.10.1
+Version:	1.12.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
-# Source0-md5:	2457b4db9379eae8e47d2367cee41297
+Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
+# Source0-md5:	88f70c8c6fee26720de6451d2ea52111
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
@@ -30,7 +30,7 @@ BuildRequires:	gobject-introspection-devel >= 0.6.7
 %{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.19.7}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
 BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	intltool >= 0.40.0
+BuildRequires:	intltool >= 0.50.1
 %{!?with_gtk3:BuildRequires:	libcanberra-gtk-devel}
 %{?with_gtk3:BuildRequires:	libcanberra-gtk3-devel}
 %{!?with_gtk3:BuildRequires:	libmateweather-devel >= 1.5.0}
@@ -52,7 +52,7 @@ BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXau-devel
-BuildRequires:	xorg-lib-libXrandr-devel >= 1.2.0
+BuildRequires:	xorg-lib-libXrandr-devel >= 1.3.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires:	%{name}-libs = %{version}-%{release}
