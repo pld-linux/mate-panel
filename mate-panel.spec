@@ -91,7 +91,7 @@ Requires:	glib2 >= 1:2.36
 %{!?with_gtk3:Requires:	gtk+2 >= 2:2.19.7}
 %{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
 Requires:	pango >= 1:1.15.4
-Requires:	xorg-lib-libXrandr >= 1.2.0
+Requires:	xorg-lib-libXrandr >= 1.3.0
 
 %description libs
 Shared library for MATE panel applets.
