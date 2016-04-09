@@ -6,12 +6,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.12.2
+Version:	1.14.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
-# Source0-md5:	00d769762cccbb012ae02698fc555dea
+Source0:	http://pub.mate-desktop.org/releases/1.14/%{name}-%{version}.tar.xz
+# Source0-md5:	3afb1a8f17f0f1d587dfa5f5d749ced6
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
@@ -35,7 +35,7 @@ BuildRequires:	intltool >= 0.50.1
 %{?with_gtk3:BuildRequires:	libcanberra-gtk3-devel}
 %{!?with_gtk3:BuildRequires:	libmateweather-devel >= 1.5.0}
 %{?with_gtk3:BuildRequires:	libmateweather-devel >= 1.7.0}
-BuildRequires:	librsvg-devel >= 2.0
+BuildRequires:	librsvg-devel >= 2.36.2
 BuildRequires:	libtool >= 1:1.4.3
 %{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
 %{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.30.7-2}
@@ -158,9 +158,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# mate < 1.5 did not exist in pld, avoid dependency on mate-conf
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/mate-panel.convert
-
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 
 desktop-file-install \
@@ -171,6 +168,8 @@ desktop-file-install \
 
 # update naming convention
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{sr@ije,sr@ijekavian}
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,jv,ku_IQ}
 
 %find_lang %{name} --with-mate --all-name
 
