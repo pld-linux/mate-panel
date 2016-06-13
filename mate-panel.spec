@@ -1,3 +1,6 @@
+# TODO
+# - unpackaged files:
+#         /usr/share/doc/gtk-doc/html/mate-panel-applet/*
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
@@ -6,12 +9,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.14.0
+Version:	1.14.1
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.14/%{name}-%{version}.tar.xz
-# Source0-md5:	3afb1a8f17f0f1d587dfa5f5d749ced6
+# Source0-md5:	307bda887bd23083f86580fd6a6a2804
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
