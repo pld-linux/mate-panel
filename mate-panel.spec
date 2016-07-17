@@ -1,6 +1,3 @@
-# TODO
-# - unpackaged files:
-#         /usr/share/doc/gtk-doc/html/mate-panel-applet/*
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
@@ -67,6 +64,7 @@ Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
 %{!?with_gtk3:Requires:	libmateweather >= 1.5.0}
 %{?with_gtk3:Requires:	libmateweather >= 1.7.0}
+Requires:	librsvg >= 2.36.2
 %{?with_gtk3:Requires:	libwnck >= 3.0.0}
 %{!?with_gtk3:Requires:	libwnck2 >= 2.30.7-2}
 Requires:	marco
