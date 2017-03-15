@@ -1,17 +1,16 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
-%bcond_with	gtk3		# use GTK+ 3.x instead of 2.x
 
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.16.1
+Version:	1.18.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.16/%{name}-%{version}.tar.xz
-# Source0-md5:	633a12ca4743f94cca9edf2866fca80f
+Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
+# Source0-md5:	6ba04a8204141e34551f9b6f77f66259
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
@@ -27,21 +26,17 @@ BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
 BuildRequires:	gettext-tools >= 0.12
 BuildRequires:	glib2-devel >= 1:2.36
 BuildRequires:	gobject-introspection-devel >= 0.6.7
-%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.19.7}
-%{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
+BuildRequires:	gtk+3-devel >= 3.14
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.50.1
-%{!?with_gtk3:BuildRequires:	libcanberra-gtk-devel}
-%{?with_gtk3:BuildRequires:	libcanberra-gtk3-devel}
-%{!?with_gtk3:BuildRequires:	libmateweather-devel >= 1.5.0}
-%{?with_gtk3:BuildRequires:	libmateweather-devel >= 1.7.0}
+BuildRequires:	libcanberra-gtk3-devel
+BuildRequires:	libmateweather-devel >= 1.7.0
 BuildRequires:	librsvg-devel >= 2.36.2
 BuildRequires:	libtool >= 1:1.4.3
-%{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
-%{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.30.7-2}
+BuildRequires:	libwnck-devel >= 3.0.0
 BuildRequires:	mate-common
-BuildRequires:	mate-desktop-devel >= 1.9.3
-BuildRequires:	mate-menus-devel >= 1.1.0
+BuildRequires:	mate-desktop-devel >= 1.17.0
+BuildRequires:	mate-menus-devel >= 1.10.0
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2
@@ -62,13 +57,11 @@ Requires:	dconf >= 0.13.4
 Requires:	desktop-file-utils
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
-%{!?with_gtk3:Requires:	libmateweather >= 1.5.0}
-%{?with_gtk3:Requires:	libmateweather >= 1.7.0}
+Requires:	libmateweather >= 1.7.0
 Requires:	librsvg >= 2.36.2
-%{?with_gtk3:Requires:	libwnck >= 3.0.0}
-%{!?with_gtk3:Requires:	libwnck2 >= 2.30.7-2}
+Requires:	libwnck >= 3.0.0
 Requires:	marco
-Requires:	mate-desktop >= 1.9.3
+Requires:	mate-desktop >= 1.17.0
 Requires:	mate-menus >= 1.1.0
 Suggests:	mate-settings-daemon
 # for fish
@@ -89,8 +82,7 @@ Group:		Libraries
 Requires:	cairo >= 1.0.0
 Requires:	gdk-pixbuf2 >= 2.7.1
 Requires:	glib2 >= 1:2.36
-%{!?with_gtk3:Requires:	gtk+2 >= 2:2.19.7}
-%{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
+Requires:	gtk+3 >= 3.14
 Requires:	pango >= 1:1.15.4
 Requires:	xorg-lib-libXrandr >= 1.3.0
 
@@ -107,8 +99,7 @@ License:	LGPL v2+
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.36
-%{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.19.7}
-%{?with_gtk3:Requires:	gtk+3-devel >= 3.0.0}
+Requires:	gtk+3-devel >= 3.14
 
 %description devel
 Development files for libmate-panel-applet library.
@@ -148,7 +139,6 @@ Dokumentacja API biblioteki libmate-panel-applet.
 	--disable-schemas-compile \
 	--disable-silent-rules \
 	--disable-static \
-	%{?with_gtk3:--with-gtk=3.0} \
 	--with-html-dir=%{_gtkdocdir} \
 	--with-x
 
