@@ -30,7 +30,7 @@ BuildRequires:	gtk+3-devel >= 3.14
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libcanberra-gtk3-devel
-BuildRequires:	libmateweather-devel >= 1.7.0
+BuildRequires:	libmateweather-devel >= 1.17.0
 BuildRequires:	librsvg-devel >= 2.36.2
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	libwnck-devel >= 3.0.0
@@ -57,12 +57,12 @@ Requires:	dconf >= 0.13.4
 Requires:	desktop-file-utils
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
-Requires:	libmateweather >= 1.7.0
+Requires:	libmateweather >= 1.17.0
 Requires:	librsvg >= 2.36.2
 Requires:	libwnck >= 3.0.0
 Requires:	marco
 Requires:	mate-desktop >= 1.17.0
-Requires:	mate-menus >= 1.1.0
+Requires:	mate-menus >= 1.10.0
 Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod
