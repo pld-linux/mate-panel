@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.18.5
+Version:	1.18.6
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
-# Source0-md5:	6829eec1638633d7c97f6a1d72a59567
+# Source0-md5:	f71cd80e5bf00ac48e0258a906b5a541
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
