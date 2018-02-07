@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.18.7
+Version:	1.20.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
-# Source0-md5:	390b1a6dd3c60e2e2c9bce48c24fa2f9
+Source0:	http://pub.mate-desktop.org/releases/1.20/%{name}-%{version}.tar.xz
+# Source0-md5:	0aae70066f48bf4d8df405285d10eb3f
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
@@ -24,16 +24,16 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
 BuildRequires:	gettext-tools >= 0.12
-BuildRequires:	glib2-devel >= 1:2.36
+BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
-BuildRequires:	gtk+3-devel >= 3.14
+BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libmateweather-devel >= 1.17.0
 BuildRequires:	librsvg-devel >= 2.36.2
 BuildRequires:	libtool >= 1:1.4.3
-BuildRequires:	libwnck-devel >= 3.0.0
+BuildRequires:	libwnck-devel >= 3.4.6
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.17.0
 BuildRequires:	mate-menus-devel >= 1.10.0
@@ -59,7 +59,7 @@ Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
 Requires:	libmateweather >= 1.17.0
 Requires:	librsvg >= 2.36.2
-Requires:	libwnck >= 3.0.0
+Requires:	libwnck >= 3.4.6
 Requires:	marco
 Requires:	mate-desktop >= 1.17.0
 Requires:	mate-menus >= 1.10.0
@@ -81,8 +81,8 @@ License:	LGPL v2+
 Group:		Libraries
 Requires:	cairo >= 1.0.0
 Requires:	gdk-pixbuf2 >= 2.7.1
-Requires:	glib2 >= 1:2.36
-Requires:	gtk+3 >= 3.14
+Requires:	glib2 >= 1:2.50.0
+Requires:	gtk+3 >= 3.22
 Requires:	pango >= 1:1.15.4
 Requires:	xorg-lib-libXrandr >= 1.3.0
 
@@ -98,8 +98,8 @@ Summary(pl.UTF-8):	Pliki programistyczne biblioteki libmate-panel-applet
 License:	LGPL v2+
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.36
-Requires:	gtk+3-devel >= 3.14
+Requires:	glib2-devel >= 1:2.50.0
+Requires:	gtk+3-devel >= 3.22
 
 %description devel
 Development files for libmate-panel-applet library.
