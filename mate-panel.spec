@@ -22,7 +22,7 @@ BuildRequires:	dbus-glib-devel >= 0.80
 BuildRequires:	dconf-devel >= 0.13.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gdk-pixbuf2-devel >= 2.7.1
+BuildRequires:	gdk-pixbuf2-devel >= 2.25.2
 BuildRequires:	gettext-tools >= 0.12
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
@@ -80,7 +80,7 @@ Summary(pl.UTF-8):	Biblitoteka współdzielona dla apletów panelu MATE
 License:	LGPL v2+
 Group:		Libraries
 Requires:	cairo >= 1.0.0
-Requires:	gdk-pixbuf2 >= 2.7.1
+Requires:	gdk-pixbuf2 >= 2.25.2
 Requires:	glib2 >= 1:2.50.0
 Requires:	gtk+3 >= 3.22
 Requires:	pango >= 1:1.15.4
