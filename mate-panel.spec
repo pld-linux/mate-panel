@@ -6,7 +6,7 @@ Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
 Version:	1.20.3
-Release:	1
+Release:	2
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.20/%{name}-%{version}.tar.xz
@@ -67,6 +67,9 @@ Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# use package subdir to avoid conflicts with GNOME
+%define		pkglibexecdir	%{_libexecdir}/%{name}
 
 %description
 MATE Desktop panel applets.
@@ -132,9 +135,8 @@ Dokumentacja API biblioteki libmate-panel-applet.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-# libexecdir needed for gnome conflicts
 %configure \
-	--libexecdir=%{_libdir}/%{name} \
+	--libexecdir=%{pkglibexecdir} \
 	--enable-network-manager \
 	--disable-schemas-compile \
 	--disable-silent-rules \
@@ -160,6 +162,8 @@ desktop-file-install \
         --dir=$RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
+# es_ES,ku_IQ are outdated versions of es,ku
+# the rest not supported by glibc
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,frp,jv,ku_IQ,pms}
 
 %find_lang %{name} --with-mate --all-name
@@ -189,11 +193,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/mate-desktop-item-edit.1*
 %{_mandir}/man1/mate-panel-test-applets.1*
 %{_mandir}/man1/mate-panel.1*
-%dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/clock-applet
-%attr(755,root,root) %{_libdir}/%{name}/fish-applet
-%attr(755,root,root) %{_libdir}/%{name}/notification-area-applet
-%attr(755,root,root) %{_libdir}/%{name}/wnck-applet
+%dir %{pkglibexecdir}
+%attr(755,root,root) %{pkglibexecdir}/clock-applet
+%attr(755,root,root) %{pkglibexecdir}/fish-applet
+%attr(755,root,root) %{pkglibexecdir}/notification-area-applet
+%attr(755,root,root) %{pkglibexecdir}/wnck-applet
 %{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.mate.panel.*.xml
 %{_datadir}/dbus-1/services/org.mate.panel.*.service
