@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.20.5
+Version:	1.22.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.20/%{name}-%{version}.tar.xz
-# Source0-md5:	5c14a2870f4858257c57dd889922124d
+Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
+# Source0-md5:	82f99551476bff08dca6140e52de10c2
 Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
@@ -18,7 +18,6 @@ BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	dbus-devel >= 1.1.2
-BuildRequires:	dbus-glib-devel >= 0.80
 BuildRequires:	dconf-devel >= 0.13.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
@@ -36,13 +35,14 @@ BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	libwnck-devel >= 3.4.6
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.17.0
-BuildRequires:	mate-menus-devel >= 1.10.0
+BuildRequires:	mate-menus-devel >= 1.21.0
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	wayland-devel
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
@@ -52,7 +52,6 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	dbus >= 1.1.2
-Requires:	dbus-glib >= 0.80
 Requires:	dconf >= 0.13.4
 Requires:	desktop-file-utils
 Requires:	gsettings-desktop-schemas
@@ -62,7 +61,7 @@ Requires:	librsvg >= 2.36.2
 Requires:	libwnck >= 3.4.6
 Requires:	marco
 Requires:	mate-desktop >= 1.17.0
-Requires:	mate-menus >= 1.10.0
+Requires:	mate-menus >= 1.21.0
 Suggests:	mate-settings-daemon
 # for fish
 Requires:	fortune-mod

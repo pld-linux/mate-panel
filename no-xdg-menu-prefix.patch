@@ -31,31 +31,34 @@
  	{SETTINGS_MENU, "mate-settings", "mate-settings.menu"}
  };
  
---- mate-panel-1.5.3/./mate-panel/panel-addto.c~	2012-12-20 00:48:50.000000000 +0200
-+++ mate-panel-1.5.3/./mate-panel/panel-addto.c	2013-01-16 12:08:31.741369388 +0200
-@@ -692,12 +692,12 @@
+--- mate-panel-1.22.0/mate-panel/panel-addto.c.orig	2019-03-18 23:53:11.196726003 +0100
++++ mate-panel-1.22.0/mate-panel/panel-addto.c	2019-03-18 23:54:51.086061909 +0100
+@@ -677,7 +677,7 @@
  
- 	store = gtk_tree_store_new(NUMBER_COLUMNS, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_POINTER, G_TYPE_STRING);
+ 	store = gtk_tree_store_new(NUMBER_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_POINTER, G_TYPE_STRING);
  
--	tree = matemenu_tree_lookup("mate-applications.menu", MATEMENU_TREE_FLAGS_NONE);
-+	tree = matemenu_tree_lookup("applications.menu", MATEMENU_TREE_FLAGS_NONE);
- 	matemenu_tree_set_sort_key(tree, MATEMENU_TREE_SORT_DISPLAY_NAME);
+-	tree = matemenu_tree_new ("mate-applications.menu", MATEMENU_TREE_FLAGS_SORT_DISPLAY_NAME);
++	tree = matemenu_tree_new ("applications.menu", MATEMENU_TREE_FLAGS_SORT_DISPLAY_NAME);
+ 	if (! matemenu_tree_load_sync (tree, &error)) {
+ 		g_warning("Applications menu tree loading got error:%s\n", error->message);
+ 		g_error_free(error);
+@@ -686,7 +686,7 @@
  
- 	if ((root = matemenu_tree_get_root_directory (tree)))
+ 	if ((root = matemenu_tree_get_root_directory (tree)) != NULL )
  	{
 -		panel_addto_make_application_list(&dialog->application_list, root, "mate-applications.menu");
 +		panel_addto_make_application_list(&dialog->application_list, root, "applications.menu");
  		panel_addto_populate_application_model(store, NULL, dialog->application_list);
  
  		matemenu_tree_item_unref(root);
---- mate-panel-1.5.3/./mate-panel/panel-run-dialog.c~	2012-12-20 00:48:50.000000000 +0200
-+++ mate-panel-1.5.3/./mate-panel/panel-run-dialog.c	2013-01-16 12:08:41.471818295 +0200
-@@ -857,7 +857,7 @@
- 	MateMenuTreeDirectory* root;
+--- mate-panel-1.22.0/mate-panel/panel-run-dialog.c.orig	2019-03-18 23:53:11.196726003 +0100
++++ mate-panel-1.22.0/mate-panel/panel-run-dialog.c	2019-03-18 23:55:51.322327695 +0100
+@@ -836,7 +836,7 @@
+ 	GError        *error = NULL;
  	GSList* retval;
  
--	tree = matemenu_tree_lookup("mate-applications.menu", MATEMENU_TREE_FLAGS_NONE);
-+	tree = matemenu_tree_lookup("applications.menu", MATEMENU_TREE_FLAGS_NONE);
- 	matemenu_tree_set_sort_key(tree, MATEMENU_TREE_SORT_DISPLAY_NAME);
- 
- 	root = matemenu_tree_get_root_directory(tree);
+-	tree = matemenu_tree_new ("mate-applications.menu", MATEMENU_TREE_FLAGS_SORT_DISPLAY_NAME);
++	tree = matemenu_tree_new ("applications.menu", MATEMENU_TREE_FLAGS_SORT_DISPLAY_NAME);
+ 	if (!matemenu_tree_load_sync (tree, &error)) {
+ 		g_printerr ("Failed to load tree: %s\n", error->message);
+ 		g_error_free(error);
