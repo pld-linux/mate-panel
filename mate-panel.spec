@@ -11,7 +11,6 @@ License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
 # Source0-md5:	82f99551476bff08dca6140e52de10c2
-Patch0:		no-xdg-menu-prefix.patch
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
@@ -126,7 +125,6 @@ Dokumentacja API biblioteki libmate-panel-applet.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
