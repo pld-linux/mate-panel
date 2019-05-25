@@ -162,7 +162,7 @@ desktop-file-install \
 # es_ES,ku_IQ are outdated versions of es,ku
 # the rest not supported by glibc
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,frp,jv,ku_IQ,pms}
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/help/{es_ES,frp,jv,kab,ku_IQ,pms,ur_PK,zh-Hans}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/help/{es_ES,frp,jv,ku_IQ,pms,ur_PK,zh-Hans}
 
 %find_lang %{name} --with-mate --all-name
 
