@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.22.2
+Version:	1.24.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
-# Source0-md5:	8bf49eb036d72efd4ea669923a514b29
+Source0:	http://pub.mate-desktop.org/releases/1.24/%{name}-%{version}.tar.xz
+# Source0-md5:	39666e326c211ce93db96f49c3a50f64
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
@@ -21,7 +21,7 @@ BuildRequires:	dconf-devel >= 0.13.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdk-pixbuf2-devel >= 2.25.2
-BuildRequires:	gettext-tools >= 0.12
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk+3-devel >= 3.22
@@ -31,7 +31,7 @@ BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libmateweather-devel >= 1.17.0
 BuildRequires:	librsvg-devel >= 2.36.2
 BuildRequires:	libtool >= 1:1.4.3
-BuildRequires:	libwnck-devel >= 3.4.6
+BuildRequires:	libwnck-devel >= 3.32.0
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.17.0
 BuildRequires:	mate-menus-devel >= 1.21.0
@@ -57,7 +57,7 @@ Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
 Requires:	libmateweather >= 1.17.0
 Requires:	librsvg >= 2.36.2
-Requires:	libwnck >= 3.4.6
+Requires:	libwnck >= 3.32.0
 Requires:	marco
 Requires:	mate-desktop >= 1.17.0
 Requires:	mate-menus >= 1.21.0
