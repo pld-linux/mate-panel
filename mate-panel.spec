@@ -113,9 +113,7 @@ Summary:	API documentation for libmate-panel-applet library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libmate-panel-applet
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for libmate-panel-applet library.
