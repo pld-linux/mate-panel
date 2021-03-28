@@ -26,6 +26,7 @@ BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	gtk-layer-shell-devel
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libmateweather-devel >= 1.17.0
