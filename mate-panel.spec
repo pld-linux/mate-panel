@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.24.2
+Version:	1.26.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	https://pub.mate-desktop.org/releases/1.24/%{name}-%{version}.tar.xz
-# Source0-md5:	931f789ed74bc1ed5fceca1ac53ffc5a
+Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
+# Source0-md5:	61c403a41cc9f263eb656d4db95cf673
 URL:		http://wiki.mate-desktop.org/mate-panel
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
@@ -20,7 +20,7 @@ BuildRequires:	dbus-devel >= 1.1.2
 BuildRequires:	dconf-devel >= 0.13.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gdk-pixbuf2-devel >= 2.25.2
+BuildRequires:	gdk-pixbuf2-devel >= 2.26.0
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
@@ -30,7 +30,6 @@ BuildRequires:	gtk-layer-shell-devel
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libmateweather-devel >= 1.17.0
-BuildRequires:	librsvg-devel >= 2.36.2
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	libwnck-devel >= 3.32.0
 BuildRequires:	mate-common
@@ -46,7 +45,6 @@ BuildRequires:	wayland-devel
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
-BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xorg-lib-libXrandr-devel >= 1.3.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -57,7 +55,6 @@ Requires:	desktop-file-utils
 Requires:	gsettings-desktop-schemas
 Requires:	gtk-update-icon-cache
 Requires:	libmateweather >= 1.17.0
-Requires:	librsvg >= 2.36.2
 Requires:	libwnck >= 3.32.0
 Requires:	marco
 Requires:	mate-desktop >= 1.17.0
@@ -82,7 +79,7 @@ Summary(pl.UTF-8):	Biblitoteka współdzielona dla apletów panelu MATE
 License:	LGPL v2+
 Group:		Libraries
 Requires:	cairo >= 1.0.0
-Requires:	gdk-pixbuf2 >= 2.25.2
+Requires:	gdk-pixbuf2 >= 2.26.0
 Requires:	glib2 >= 1:2.50.0
 Requires:	gtk+3 >= 3.22
 Requires:	pango >= 1:1.15.4
