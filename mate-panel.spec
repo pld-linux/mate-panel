@@ -11,7 +11,7 @@ License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
 # Source0-md5:	61c403a41cc9f263eb656d4db95cf673
-URL:		http://wiki.mate-desktop.org/mate-panel
+URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-panel/
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -38,6 +38,7 @@ BuildRequires:	mate-menus-devel >= 1.21.0
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	tar >= 1:1.22
