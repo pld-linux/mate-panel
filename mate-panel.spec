@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.26.0
+Version:	1.26.1
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
-# Source0-md5:	61c403a41cc9f263eb656d4db95cf673
+# Source0-md5:	4562480bc46dd710fa82a5ce51e288ea
 URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-panel/
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
