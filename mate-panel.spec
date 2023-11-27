@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# disable gtk-doc
+%bcond_without	apidocs		# gtk-doc API documentation
 
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
@@ -12,7 +12,6 @@ Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
 # Source0-md5:	12a5fcc4fa27caec66b3ba99e60011f3
 URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-panel/
-BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	cairo-devel >= 1.0.0
@@ -131,12 +130,10 @@ Dokumentacja API biblioteki libmate-panel-applet.
 %{__automake}
 %configure \
 	--libexecdir=%{pkglibexecdir} \
-	--enable-network-manager \
 	--disable-schemas-compile \
 	--disable-silent-rules \
 	--disable-static \
-	--with-html-dir=%{_gtkdocdir} \
-	--with-x
+	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
 
