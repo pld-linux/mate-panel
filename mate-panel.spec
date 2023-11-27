@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.26.3
+Version:	1.26.4
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
-# Source0-md5:	0801a261a0b098cc27acc64d1b209588
+# Source0-md5:	12a5fcc4fa27caec66b3ba99e60011f3
 URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-panel/
 BuildRequires:	NetworkManager-devel >= 0.6
 BuildRequires:	autoconf >= 2.53
@@ -151,9 +151,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/mate-panel/ui
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 
 desktop-file-install \
-        --remove-category="MATE" \
-        --add-category="X-Mate" \
-        --dir=$RPM_BUILD_ROOT%{_desktopdir} \
+	--remove-category="MATE" \
+	--add-category="X-Mate" \
+	--dir=$RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 # es_ES,ku_IQ are outdated versions of es,ku
