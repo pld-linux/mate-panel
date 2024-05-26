@@ -5,12 +5,12 @@
 Summary:	MATE Desktop panel applets
 Summary(pl.UTF-8):	Aplety panelu dla środowiska MATE Desktop
 Name:		mate-panel
-Version:	1.26.4
+Version:	1.28.1
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (applets)
 Group:		X11/Applications
-Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
-# Source0-md5:	12a5fcc4fa27caec66b3ba99e60011f3
+Source0:	https://pub.mate-desktop.org/releases/1.28/%{name}-%{version}.tar.xz
+# Source0-md5:	0c460d78a6b984896201a9a1ca7b2ee5
 URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-panel/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -32,7 +32,7 @@ BuildRequires:	libmateweather-devel >= 1.17.0
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	libwnck-devel >= 3.32.0
 BuildRequires:	mate-common
-BuildRequires:	mate-desktop-devel >= 1.17.0
+BuildRequires:	mate-desktop-devel >= 1.28.2
 BuildRequires:	mate-menus-devel >= 1.21.0
 BuildRequires:	pango-devel >= 1:1.15.4
 BuildRequires:	pkgconfig
@@ -57,7 +57,7 @@ Requires:	gtk-update-icon-cache
 Requires:	libmateweather >= 1.17.0
 Requires:	libwnck >= 3.32.0
 Requires:	marco
-Requires:	mate-desktop >= 1.17.0
+Requires:	mate-desktop >= 1.28.2
 Requires:	mate-menus >= 1.21.0
 Suggests:	mate-settings-daemon
 # for fish
